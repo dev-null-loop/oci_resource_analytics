@@ -1,5 +1,5 @@
 variable "adw_admin_password" {
-  description = "Details for the ADW Admin password. Password can be passed as `VaultSecretPasswordDetails` or `PlainTextPasswordDetails`.  Example: `{\"passwordType\":\"PLAIN_TEXT\",\"password\":\"...\"}` Example: `{\"passwordType\":\"VAULT_SECRET\",\"secretId\":\"ocid...\"}`"
+  description = "(Required) Details for the ADW Admin password. Password can be passed as `VaultSecretPasswordDetails` or `PlainTextPasswordDetails`.  Example: `{\"passwordType\":\"PLAIN_TEXT\",\"password\":\"...\"}` Example: `{\"passwordType\":\"VAULT_SECRET\",\"secretId\":\"ocid...\"}`"
   type = object({
     password_type = string
     password      = optional(string)
@@ -23,53 +23,53 @@ variable "adw_admin_password" {
 }
 
 variable "compartment_id" {
-  description = "The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to create the ResourceAnalyticsInstance in."
+  description = "(Required) (Updatable) The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to create the ResourceAnalyticsInstance in."
   type        = string
 }
 
 variable "defined_tags" {
-  description = "Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).  Example: `{\"Operations.CostCenter\": \"42\"}`"
+  description = "(Optional) (Updatable) Defined tags for this resource. Each key is predefined and scoped to a namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).  Example: `{\"Operations.CostCenter\": \"42\"}`"
   type        = map(string)
   default     = null
 }
 
 variable "description" {
-  description = "A description of the ResourceAnalyticsInstance instance."
+  description = "(Optional) (Updatable) A description of the ResourceAnalyticsInstance instance."
   type        = string
   default     = null
 }
 
 variable "display_name" {
-  description = "A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information."
+  description = "(Optional) (Updatable) A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information."
   type        = string
   default     = null
 }
 
 variable "freeform_tags" {
-  description = "Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).  Example: `{\"Department\": \"Finance\"}`"
+  description = "(Optional) (Updatable) Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).  Example: `{\"Department\": \"Finance\"}`"
   type        = map(string)
   default     = {}
 }
 
 variable "is_mutual_tls_required" {
-  description = "Require mutual TLS (mTLS) when authenticating connections to the ADW database."
+  description = "(Optional) Require mutual TLS (mTLS) when authenticating connections to the ADW database."
   type        = bool
   default     = null
 }
 
 variable "license_model" {
-  description = "The Oracle license model that applies to the ADW instance."
+  description = "(Optional) The Oracle license model that applies to the ADW instance."
   type        = string
   default     = null
 }
 
 variable "nsg_ids" {
-  description = "List of Network Security Group [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)'s.  Example: `[\"ocid...\", \"ocid...\"]`"
+  description = "(Optional) List of Network Security Group [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)'s.  Example: `[\"ocid...\", \"ocid...\"]`"
   type        = list(string)
   default     = []
 }
 
 variable "subnet_id" {
-  description = "The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with."
+  description = "(Required) The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the resource is associated with."
   type        = string
 }
